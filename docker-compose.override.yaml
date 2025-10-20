@@ -1,0 +1,13 @@
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: spring-boot-app-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src # mount source code
+      - ./build:/app/build # mount build output (so recompiled classes appear inside container)
+      - ./gradle:/app/gradle # gradle cache if needed
+      - ./gradlew:/app/gradlew

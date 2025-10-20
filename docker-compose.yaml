@@ -1,0 +1,6 @@
+services:
+  demo:
+    build: .
+    image: spring-boot-app
+    ports:
+      - "8080:8080"

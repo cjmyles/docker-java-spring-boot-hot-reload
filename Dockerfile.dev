@@ -1,0 +1,6 @@
+FROM gradle:8.10-jdk17 AS dev
+WORKDIR /app
+COPY . .
+
+# Run Gradle continuous build in the background and then start the app
+CMD ./gradlew build --continuous -x test & ./gradlew bootRun --no-daemon
